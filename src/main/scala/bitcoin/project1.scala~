@@ -1,0 +1,110 @@
+package bitcoin
+
+/*
+ * project1.scala is the first project for COP5615 Distributed Operating Systems Principles 
+ * at University of Florida. In this project, we use the akka actors framework in scala to 
+ * mine bitcoins using a cryptographically secure hash called SHA256
+ * 
+ * @authors - Mugdha and Palak Shah
+ * @date - 09/19/2014
+ * 
+ */
+import akka.actor.Actor
+import akka.actor.ActorSystem
+import akka.actor.Props
+import com.typesafe.config.ConfigFactory
+
+/*
+ * project1 contains the main method for this project.
+ * To run the server, user should give number of zeros (int) as arguement
+ * To run a set of workers, user should give server's ipaddress (String) as arguement
+ * This code does not handle the case where user gives wrong arguement or no arguement
+ *  
+ */
+object project1 {
+  
+	/*
+	 * Main method - takes arguement and decides whether to start server or a set of workers
+	 *
+	 * @param number of zeroes / ipaddress of server
+	 */
+	def main(args: Array[String]) {
+		var noOfZeros:Int=0
+		var ipAddress : String = ""
+		var ipForName  : String = ""
+		println("Project1 has started...")
+		println("-----------------------------------------------------------------------------------------")
+		println("All bitcoins collected will be displayed on Server Machine at the end of 5 minutes!!!")
+		println("-----------------------------------------------------------------------------------------\n")
+		
+		// The following lines read from the conf file and 
+		// extract the configuration of two actor systems - remote and local
+		val root = ConfigFactory.load()
+		val one = root.getConfig("RemoteActor")
+		val two = root.getConfig("LocalActor")
+		
+		//Look at console argument and decide whether to start server or worker
+        if(args(0).split("[.]").length==4) { 
+          /*
+           * This is worker-side actor system
+           */ 
+			ipAddress=args(0)
+			val system2 = ActorSystem("LocalActor", two)
+			/*val system2 = ActorSystem("LocalActor", ConfigFactory.parseString("""
+				akka {
+					actor {
+						provider = "akka.remote.RemoteActorRefProvider"
+					}
+					remote {
+						transport = ["akka.remote.netty.tcp"]
+						netty.tcp {
+							hostname = "127.0.0.1"
+							port = 2553
+	                 	}
+					}
+				}
+        """))*/
+			ipForName = two.getString("akka.remote.netty.tcp.hostname")
+			val localBoss=system2.actorOf(Props(new localListener(ipAddress,system2)), name = ipForName)
+			localBoss ! "connectRemote"
+			println("localListener Started on Client Machine....\n")
+			
+		} 
+		else  { 
+		  /* 
+		   * This is server-side actor system
+		   */		  
+			val system = ActorSystem("RemoteActor", one)
+			/*val system = ActorSystem("RemoteActor", ConfigFactory.parseString("""
+				akka {
+					actor {
+						provider = "akka.remote.RemoteActorRefProvider"
+					}
+					remote {
+						transport = ["akka.remote.netty.tcp"]
+						netty.tcp {
+							hostname = "192.168.1.5"
+							port = 2552
+	                 	}
+					}
+				}
+        """))*/
+			val remoteBoss=system.actorOf(Props(new remoteListener(args(0).toInt)),name = "Remote")
+			ipAddress = one.getString("akka.remote.netty.tcp.hostname")
+			val port = one.getString("akka.remote.netty.tcp.port")
+			
+			println("remoteListener Started on Server Machine....")
+			println("Server ip : "+ipAddress+" "+port+'\n')
+			  
+			val localBoss=system.actorOf(Props(new localListener(ipAddress,system)),name = ipAddress)
+			localBoss ! "connectRemote"
+			println("localListener Started on Server Machine....\n")
+			
+			val timer = system.actorOf(Props(new timerActor(remoteBoss)), name = "Timer")
+			timer ! start
+			println("timer Started on Server Machine....\n")
+			
+		}//if loop ends here	
+	}//main method ends here
+}//project1.scala ends here
+
