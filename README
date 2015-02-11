@@ -1,0 +1,60 @@
+<<<-------------------------------------------------TEAM MEMBERS------------------------------------------------->>>
+Mugdha (UFID - 54219168)
+Palak Shah (UFID - 55510961)
+
+
+<<<---------------------------------Contents of Project1_54219168_55510961.tar------------------------------------>>>
+sbt project dosProject1
+README file
+Diagram depicting Flow of Messages
+Test Results
+
+
+<<<-----------------------------------------Before running the code ------------------------------------------>>>
+Go to dosProject1/src/main/resources and edit the application.conf file
+for running the server code, 
+	put server machine's ip address in hostname field of RemoteActor
+for running the client code - 
+	put client machine's ip address in hostname field of LocalActor 	
+
+
+<<<-----------------------Command to run the code - (assumes that sbt is added to PATH)----------------------->>>
+Go into dosProject1 directory and type the following command
+	$ sbt  
+This will give you an sbt console
+	> publishLocal
+	> runMain bitcoin.project1 <args0>
+	(args0 for server program is number of zeroes required)
+	(args0 for client side is ip address of server)
+The code runs for 5 minutes and then prints results and terminates gracefully
+
+
+<<<------------------------------------------------TEST SYSTEM-------------------------------------------------->>>
+Hardware - 
+Cluster of 3 Intel Q57 Express Machines
+CPU - Intel Core i7 CPU 860 @ 2.80GHz 
+Number of Cores - 8 
+RAM - 16GB
+
+Network - Broadband Network. All machines were connected to an ethernet switch.
+
+	
+<<<-----------------------------------Summary and Analysis of Results---------------------------------------->>>
+Runtime for testing - 2 minutes
+Number of Machines used - 3
+Maximum number zeroes for which bitcoins were mined - 7
+
+For large loads, number of Bitcoins increased almost linearly as number of machines was increased from 1-3. This is expected because message overhead is less. For smaller loads, number of bitcoins increased non-linearly with number of machines. This is expected because message overhead is high
+
+Number of Bitcoins mined decreased as load on every machine increased. This was not expected because as load on each machine increases, number of messages passed between machines decreases. But this phenomenon might be due to various reasons like - 
+	1. Fast network
+	2. Complexity of code that mines bitcoins
+	3. Size limitation of BigInt (used to define Load)
+
+CPU Time = (approximately) 7.5 times Real Time when run from sbt console
+CPU Time = (approcimately) 4.5 times Real Time when run from console 
+CPU Time vs real time calculation was obtained by running the code on console with "time" command. 
+
+{{Please refer to Results file for actual values}}
+
+

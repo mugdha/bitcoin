@@ -1,0 +1,4 @@
+[0m[[0minfo[0m] [0m:: delivering :: default#dosproject1_2.10;1.0 :: 1.0 :: release :: Sat Sep 20 06:16:52 IST 2014[0m
+[0m[[0mdebug[0m] [0m	options = status=release pubdate=Sat Sep 20 06:16:52 IST 2014 validate=true resolveDynamicRevisions=true merge=true resolveId=null pubBranch=null[0m
+[0m[[0minfo[0m] [0m	delivering ivy file to /home/stormcluster/scalaDOS/dosProject1/target/scala-2.10/ivy-1.0.xml[0m
+[0m[[0mdebug[0m] [0m	deliver done (38ms)[0m

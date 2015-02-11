@@ -1,0 +1,72 @@
+exit
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+runMain bitcoin.project1
+publishLocal
+runMain bitcoin.project1 5
+runMain bitcoin.project1 4
+runMain bitcoin.project1 192.168.1.56
+runMain bitcoin.project1 5
+run time bitcoin.project1 5
+runMain time bitcoin.project1 5
+runMain bitcoin.project1 5
+run time bitcoin.project1 5
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+runMain bitcoin.project1 6
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+runMain bitcoin.project1 4
+publishLocal
+runMain bitcoin.project1 5
+runMain bitcoin.project1 4
+publishLocal
+runMain bitcoin.project1 5
+exit
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 5
+publishLocal
+runMain bitcoin.project1 6
+runMain bitcoin.project1 7
+runMain bitcoin.project1 8
+runMain bitcoin.project1 9
+exit
+publishLocal
+runMain bitcoin.project1 5

@@ -1,0 +1,17 @@
+[0m[[0minfo[0m] [0mPackaging /home/stormcluster/scalaDOS/dosProject1/target/scala-2.10/dosproject1_2.10-1.0-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	bitcoin/localWorker.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/scala/bitcoin/localWorker.scala[0m
+[0m[[0mdebug[0m] [0m	bitcoin/timerActor.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/scala/bitcoin/timerActor.scala[0m
+[0m[[0mdebug[0m] [0m	bitcoin/remoteListener.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/scala/bitcoin/remoteListener.scala[0m
+[0m[[0mdebug[0m] [0m	application.conf~[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/resources/application.conf~[0m
+[0m[[0mdebug[0m] [0m	bitcoin/project1.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/scala/bitcoin/project1.scala[0m
+[0m[[0mdebug[0m] [0m	bitcoin/localListener.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/scala/bitcoin/localListener.scala[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  /home/stormcluster/scalaDOS/dosProject1/src/main/resources/application.conf[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
